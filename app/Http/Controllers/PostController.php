@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -33,11 +34,8 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request , Post $post)
+    public function store(CreateCommentRequest $request , Post $post)
     {
-        $request->validate([
-            'comment' => 'required|max:50',
-         ]);
 
         Comment::create([
             'comments' => $request->comment,
