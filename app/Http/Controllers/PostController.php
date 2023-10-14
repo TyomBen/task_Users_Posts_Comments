@@ -18,7 +18,7 @@ class PostController extends Controller
 
         $posts = Post::with('user', 'comment')
         ->orderBy('created_at', 'asc')
-        ->paginate(20);
+        ->paginate(10);
         return view ('posts.index', compact('posts'));
     }
 

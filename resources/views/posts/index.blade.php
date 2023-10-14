@@ -39,13 +39,13 @@
                     @foreach ($post->comment as $comment)
                         <tr>
                             <td> {{ $comment->comments }}</td>
-                            <td> {{ $comment->created_at }}
-                            <td> {{ $post->user->name }}
-                            <td> {{ $post->title }}
+                            <td> {{ $comment->created_at }} </td>
+                            <td> {{ $post->user->name }} </td>
+                            <td> {{ $post->title }} </td>
                         </tr>
                     @endforeach
                 @endforeach
-                <div>{{ $posts->links() }}
+                <div>{{ $posts->links('pagination::bootstrap-4') }}
                 </div>
             </tbody>
         </table>
