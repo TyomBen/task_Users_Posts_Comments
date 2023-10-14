@@ -16,10 +16,12 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::with('user', 'comment')
-        ->orderBy('created_at', 'asc')
-        ->paginate(10);
-        return view ('posts.index', compact('posts'));
+        $posts = Post::with(['user', 'comment' => function($query) {
+            $query->paginate(5);
+        }])->orderBy('created_at', 'asc')->paginate(2);
+
+        return view('posts.index', compact('posts'));
+
     }
 
     /**
